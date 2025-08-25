@@ -1,0 +1,28 @@
+@using MVC_ADO_DemoDay31.Models;
+@using System.Data;
+@{
+    ViewData["Title"] = "Product List";
+}
+
+<h1>Product List</h1>
+
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (DataRow row in Model.Tables[0].Rows)
+        {
+            <tr>
+                <td>@row["Id"]</td>
+                <td>@row["Name"]</td>
+                <td>@row["Price"]</td>
+            </tr>
+        }
+    </tbody>
+</table>
