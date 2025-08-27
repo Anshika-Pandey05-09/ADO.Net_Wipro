@@ -1,0 +1,26 @@
+@model IEnumerable<Day33_EmployeeDirectoryMvcDemo.Models.Employee>
+
+<h2>Employees</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Join Date</th>
+            <th>Salary</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var emp in Model)
+    {
+        <tr>
+            <td>@emp.Id</td>
+            <td>@emp.Name</td>
+            <td>@emp.Email</td>
+            <td>@emp.JoinDate</td>
+            <td>@emp.Salary</td>
+        </tr>
+    }
+    </tbody>
+</table>
