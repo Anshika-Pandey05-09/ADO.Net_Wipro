@@ -1,0 +1,14 @@
+@model Day33_LibraryManagement_assignment.Models.Genre
+
+<h2>Edit Genre</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="GenreId" />
+
+    <div class="form-group">
+        <label>Name</label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>

@@ -1,0 +1,12 @@
+@model Day33_LibraryManagement_assignment.Models.Genre
+
+<h2>Add Genre</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label>Name</label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-success">Save</button>
+</form>

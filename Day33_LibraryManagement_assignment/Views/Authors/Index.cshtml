@@ -1,0 +1,33 @@
+@model IEnumerable<Day33_LibraryManagement_assignment.Models.Author>
+
+@{
+    ViewData["Title"] = "Authors List";
+}
+
+<h2>Authors List</h2>
+<p>
+    <a asp-action="Create" class="btn btn-primary">Add New Author</a>
+</p>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Bio</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Bio</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.AuthorId">Details</a> |
+                    <a asp-action="Edit" asp-route-id="@item.AuthorId">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@item.AuthorId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,15 @@
+@model Day33_LibraryManagement_assignment.Models.Genre
+
+<h2>Genre Details</h2>
+
+<p><strong>Name:</strong> @Model.Name</p>
+
+<h3>Books in this Genre</h3>
+<ul>
+@foreach (var book in Model.Books ?? new List<Day33_LibraryManagement_assignment.Models.Book>())
+{
+    <li>@book.Title</li>
+}
+</ul>
+
+<a asp-action="Index" class="btn btn-secondary">Back</a>

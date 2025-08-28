@@ -1,0 +1,13 @@
+@model Day33_LibraryManagement_assignment.Models.Author
+
+<h2>Delete Author</h2>
+<p>Are you sure you want to delete this author?</p>
+
+<p><strong>Name:</strong> @Model.Name</p>
+<p><strong>Bio:</strong> @Model.Bio</p>
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="AuthorId" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

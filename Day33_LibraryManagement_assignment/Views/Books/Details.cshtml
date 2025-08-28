@@ -1,0 +1,26 @@
+@* @model Day33_LibraryManagement_assignment.Models.Book
+
+<h2>Book Details</h2>
+
+<p><strong>Title:</strong> @Model.Title</p>
+<p><strong>Author:</strong> @Model.Author?.Name</p>
+
+<a asp-action="Index" class="btn btn-secondary">Back</a> *@
+
+
+@model Day33_LibraryManagement_assignment.Models.Book
+
+<h2>Book Details</h2>
+
+<p><strong>Title:</strong> @Model.Title</p>
+<p><strong>Author:</strong> @Model.Author?.Name</p>
+
+<h3>Genres</h3>
+<ul>
+@foreach (var genre in Model.Genres ?? new List<Day33_LibraryManagement_assignment.Models.Genre>())
+{
+    <li>@genre.Name</li>
+}
+</ul>
+
+<a asp-action="Index" class="btn btn-secondary">Back</a>
