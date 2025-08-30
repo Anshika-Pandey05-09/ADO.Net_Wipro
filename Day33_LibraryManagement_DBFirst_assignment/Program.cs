@@ -1,7 +1,10 @@
 using Day33_LibraryManagement_DBFirst_assignment.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<LibraryContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("LibraryContext") ?? throw new InvalidOperationException("Connection string 'LibraryContext' not found.")));
 
 // Register DbContext
 builder.Services.AddDbContext<LibraryDbAssignmentContext>(options =>
