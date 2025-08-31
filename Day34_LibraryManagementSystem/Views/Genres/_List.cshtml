@@ -1,0 +1,15 @@
+@model IEnumerable<Day34_LibraryManagementSystem.Models.Genre>
+<table class="table table-hover bg-white">
+  <thead><tr><th>Name</th><th style="width:120px"></th></tr></thead>
+  <tbody>
+  @foreach(var g in Model){
+    <tr>
+      <td>@g.Name</td>
+      <td class="text-end">
+        <button class="btn btn-sm btn-warning" data-ajax="true" data-url="@Url.Action("Edit", new { id=g.Id })" data-title="Edit Genre">Edit</button>
+        <button class="btn btn-sm btn-danger" data-delete-url="@Url.Action("Delete", new { id=g.Id })">Delete</button>
+      </td>
+    </tr>
+  }
+  </tbody>
+</table>

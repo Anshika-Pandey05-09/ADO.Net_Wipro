@@ -1,0 +1,26 @@
+@model Day34_LibraryManagementSystem.Models.Author
+@{
+  var isEdit = Model.Id > 0;
+  var postUrl = isEdit ? Url.Action("Edit") : Url.Action("Create");
+}
+<div class="modal-header">
+  <h5 class="modal-title">@((isEdit?"Edit":"Create")) Author</h5>
+  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+<form id="ajaxForm" method="post" action="@postUrl">
+  @if(isEdit){ <input type="hidden" name="Id" value="@Model.Id" /> }
+  <div class="mb-3">
+    <label class="form-label">Name</label>
+    <input asp-for="Name" class="form-control" />
+    <span asp-validation-for="Name" class="text-danger"></span>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Bio</label>
+    <textarea asp-for="Bio" class="form-control"></textarea>
+  </div>
+  <div class="text-end">
+    <button class="btn btn-primary" type="submit">Save</button>
+  </div>
+</form>
+</div>

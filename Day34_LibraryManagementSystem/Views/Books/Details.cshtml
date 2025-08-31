@@ -1,0 +1,9 @@
+@model Day34_LibraryManagementSystem.Models.Book
+@{
+    Layout = "_Layout";
+}
+<h3>@Model.Title</h3>
+<p><strong>Author:</strong> @Model.Author?.Name</p>
+<p><strong>Published:</strong> @(Model.PublishedOn?.ToString("yyyy-MM-dd") ?? "-")</p>
+<p><strong>Genres:</strong> @string.Join(", ", Model.BookGenres.Select(bg => bg.Genre!.Name))</p>
+<a class="btn btn-secondary" href="@Url.Action("Index")">Back</a>

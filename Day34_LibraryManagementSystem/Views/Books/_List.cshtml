@@ -1,0 +1,28 @@
+@model IEnumerable<Day34_LibraryManagementSystem.Models.Book>
+<table class="table table-hover bg-white">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Published</th>
+      <th>Genres</th>
+      <th style="width:160px"></th>
+    </tr>
+  </thead>
+  <tbody>
+  @foreach (var b in Model)
+  {
+    <tr>
+      <td>@b.Title</td>
+      <td>@b.Author?.Name</td>
+      <td>@(b.PublishedOn?.ToString("yyyy-MM-dd") ?? "-")</td>
+      <td>@string.Join(", ", b.BookGenres.Select(bg => bg.Genre!.Name))</td>
+      <td class="text-end">
+        <a class="btn btn-sm btn-outline-secondary" href="@Url.Action("Details", new { id=b.Id })">Details</a>
+        <button class="btn btn-sm btn-warning" data-ajax="true" data-url="@Url.Action("Edit", new { id=b.Id })" data-title="Edit Book">Edit</button>
+        <button class="btn btn-sm btn-danger" data-delete-url="@Url.Action("Delete", new { id=b.Id })">Delete</button>
+      </td>
+    </tr>
+  }
+  </tbody>
+</table>

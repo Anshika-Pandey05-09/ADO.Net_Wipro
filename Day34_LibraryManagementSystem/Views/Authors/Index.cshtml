@@ -1,0 +1,9 @@
+@model IEnumerable<Day34_LibraryManagementSystem.Models.Author>
+@{
+    Layout = "_Layout";
+}
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h2>Authors</h2>
+  <button class="btn btn-primary" data-ajax="true" data-url="@Url.Action("Create")" data-title="Create Author">Create</button>
+</div>
+<div id="listContainer">@Html.Partial("_List", Model)</div>

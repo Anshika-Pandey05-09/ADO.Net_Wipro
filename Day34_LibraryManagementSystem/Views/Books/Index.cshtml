@@ -1,0 +1,63 @@
+@model IEnumerable<Day34_LibraryManagementSystem.Models.Book>
+@{
+    Layout = "_Layout";
+    var totalPages = ViewBag.TotalPages as int? ?? 1;
+    var page = ViewBag.Page as int? ?? 1;
+    string search = ViewBag.Search as string ?? "";
+    string sort = ViewBag.Sort as string ?? "";
+}
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h2 class="mb-0">Books</h2>
+  <button class="btn btn-primary" data-ajax="true" data-url="@Url.Action("Create")" data-title="Create Book">Create</button>
+</div>
+
+<form id="searchForm" class="row g-2 mb-3">
+  <div class="col-md-4">
+    <input class="form-control" type="text" name="search" value="@search" placeholder="Search by title/author" />
+  </div>
+  <div class="col-md-3">
+    <select class="form-select" name="sort">
+    <option value="" selected="@(string.IsNullOrEmpty(sort))">Title ↑</option>
+    <option value="title_desc" selected="@(sort == "title_desc")">Title ↓</option>
+    <option value="date" selected="@(sort == "date")">Published ↑</option>
+    <option value="date_desc" selected="@(sort == "date_desc")">Published ↓</option>
+</select>
+
+  </div>
+  <div class="col-md-2">
+    <button class="btn btn-outline-secondary w-100" type="submit">Apply</button>
+  </div>
+</form>
+
+<div id="listContainer">
+    @Html.Partial("_List", Model)
+</div>
+
+<nav class="mt-3">
+  <ul class="pagination">
+    @for (var i = 1; i <= totalPages; i++)
+    {
+        <li class="page-item @(i==page?"active":"")">
+            <a class="page-link" href="#" data-page="@i">@i</a>
+        </li>
+    }
+  </ul>
+</nav>
+
+<script>
+$(function(){
+  $("#searchForm").on("submit", function(e){
+    e.preventDefault();
+    $.get("@Url.Action("Index")", $(this).serialize(), function(html){
+      $("#listContainer").html($(html));
+    });
+  });
+  $(".pagination").on("click","a.page-link", function(e){
+    e.preventDefault();
+    const params = $("#searchForm").serialize() + "&page=" + $(this).data("page");
+    $.get("@Url.Action("Index")", params, function(html){
+      $("#listContainer").html($(html));
+    });
+  });
+});
+</script>
