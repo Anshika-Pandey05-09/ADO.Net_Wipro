@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day38_SecureShoppingAssignment", "Day38_SecureShoppingAssignment.csproj", "{E92620F6-4E94-B92E-8DE0-94A3BC1B6EDF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E92620F6-4E94-B92E-8DE0-94A3BC1B6EDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E92620F6-4E94-B92E-8DE0-94A3BC1B6EDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E92620F6-4E94-B92E-8DE0-94A3BC1B6EDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E92620F6-4E94-B92E-8DE0-94A3BC1B6EDF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9EA967D8-9FBE-4C9C-B8DB-F824520749DC}
+	EndGlobalSection
+EndGlobal

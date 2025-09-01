@@ -1,0 +1,10 @@
+@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+
+<h2>Admin Dashboard</h2>
+<p>Only accessible by Admins.</p>
+
+<form asp-controller="Account" asp-action="Logout" method="post" class="mt-3">
+    <button type="submit" class="btn btn-danger">Logout</button>
+</form>

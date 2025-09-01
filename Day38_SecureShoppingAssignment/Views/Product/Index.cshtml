@@ -1,0 +1,8 @@
+@model IEnumerable<Day38_SecureShoppingAssignment.Models.Product>
+<h2>Products</h2>
+<ul>
+    @foreach (var product in Model)
+    {
+        <li>@Html.Encode(product.Name) - @Html.Encode(product.Description) - @product.Price</li>
+    }
+</ul>
